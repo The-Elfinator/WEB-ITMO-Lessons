@@ -1,0 +1,55 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+  <display-name>lesson3</display-name>
+
+  <filter>
+    <filter-name>loggingFilter</filter-name>
+    <filter-class>ru.itmo.wp.lesson3.LoggingFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>loggingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <servlet>
+    <servlet-name>helloServlet</servlet-name>
+    <servlet-class>ru.itmo.wp.lesson3.HelloServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>helloServlet</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>staticServlet</servlet-name>
+    <servlet-class>ru.itmo.wp.lesson3.StaticServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>staticServlet</servlet-name>
+    <url-pattern>*.html</url-pattern>
+    <url-pattern>*.css</url-pattern>
+    <url-pattern>*.png</url-pattern>
+    <url-pattern>*.jpg</url-pattern>
+    <url-pattern>*.ico</url-pattern>
+    <url-pattern>*.js</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>sessionServlet</servlet-name>
+    <servlet-class>ru.itmo.wp.lesson3.SessionServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>sessionServlet</servlet-name>
+    <url-pattern>/session</url-pattern>
+  </servlet-mapping>
+
+
+
+</web-app>
