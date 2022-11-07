@@ -1,10 +1,20 @@
 package ru.itmo.wp.lesson5.web.page;
 
+import com.google.common.base.Strings;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 public class IndexPage {
     private void action(HttpServletRequest request, Map<String, Object> view) {
-        view.put("name", "Mike");
+        putMessage(request, view);
+    }
+
+    private void putMessage(HttpServletRequest request, Map<String, Object> view) {
+        String message = (String) request.getSession().getAttribute("message");
+        if (!Strings.isNullOrEmpty(message)) {
+            view.put("message", message);
+            request.getSession().removeAttribute("message");
+        }
     }
 }

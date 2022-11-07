@@ -1,6 +1,7 @@
 package ru.itmo.wp.lesson5.web;
 
 import freemarker.template.*;
+import ru.itmo.wp.lesson5.model.exception.ValidationException;
 import ru.itmo.wp.lesson5.web.exception.NotFoundException;
 import ru.itmo.wp.lesson5.web.exception.RedirectException;
 import ru.itmo.wp.lesson5.web.page.IndexPage;
@@ -127,11 +128,23 @@ public class FrontServlet extends HttpServlet {
             Throwable cause = e.getCause();
 
             if (cause instanceof RedirectException) {
-                response.sendRedirect(((RedirectException) cause).getTarget());
+                RedirectException redirectException = (RedirectException) cause;
+                response.sendRedirect(redirectException.getTarget());
                 return;
+            } else if (cause instanceof ValidationException) {
+                view.put("error", cause.getMessage());
+                for (Map.Entry<String, String[]> entry : request.getParameterMap().entrySet()) {
+                    if (entry.getValue() != null && entry.getValue().length == 1) {
+                        view.put(entry.getKey(), entry.getValue()[0]);
+                    }
+                }
+            } else {
+                throw new ServletException("Unexpected page exception [pageClass=" + pageClass + ", action=" + route.getAction() + "].", e);
             }
+        }
 
-            throw new ServletException("Unexpected page exception [pageClass=" + pageClass + ", action=" + route.getAction() + "].", e);
+        if (request.getSession().getAttribute("user") != null) {
+            view.put("user", request.getSession().getAttribute("user"));
         }
 
         Template template = newTemplate(pageClass.getSimpleName() + ".ftlh");

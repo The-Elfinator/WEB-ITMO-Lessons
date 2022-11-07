@@ -1,3 +1,4 @@
+<#-- @ftlvariable name="message" type="java.lang.String" -->
 <#macro page>
     <!DOCTYPE html>
     <html lang="en">
@@ -9,8 +10,14 @@
     </head>
     <body>
     <@header/>
+    <#if message??>
+        <div class="message">
+            ${message}
+        </div>
+    </#if>
     <div class="middle">
         <@sidebar/>
+
         <main>
             <#nested/>
         </main>
@@ -85,6 +92,5 @@
 </#function>
 
 <#macro userlink u>
-<#-- @ftlvariable name="u" type="ru.itmo.web.lesson4.model.User" -->
-    <a href="/user?handle=${u.handle}">${u.name}</a>
+    <a href="/user?login=${u.login}">${u.login}</a>
 </#macro>
