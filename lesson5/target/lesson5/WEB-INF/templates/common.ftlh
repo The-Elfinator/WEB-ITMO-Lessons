@@ -1,3 +1,4 @@
+<#-- @ftlvariable name="message" type="java.lang.String" -->
 <#macro page>
     <!DOCTYPE html>
     <html lang="en">
@@ -9,8 +10,14 @@
     </head>
     <body>
     <@header/>
+    <#if message??>
+        <div class="message">
+            ${message}
+        </div>
+    </#if>
     <div class="middle">
         <@sidebar/>
+
         <main>
             <#nested/>
         </main>

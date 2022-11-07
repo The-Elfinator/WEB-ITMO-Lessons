@@ -2,5 +2,5 @@
 <#import "./common.ftlh" as c>
 
 <@c.page>
-    Hello, ${name}!
+    Welcome to Codeforces!
 </@c.page>
