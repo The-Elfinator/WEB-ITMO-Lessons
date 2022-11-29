@@ -10,3 +10,5 @@ Lectures of WEB-programming on JAVA, IFMO, CT, 2nd year
 
 ## Lesson 6: "Using data base of Users"
 Lesson6 project in lesson5 directory
+
+## Lesson 7: "Using AJAX, JavaScript"
