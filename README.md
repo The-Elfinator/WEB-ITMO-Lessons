@@ -14,3 +14,5 @@ Lesson6 project in lesson5 directory
 ## Lesson 7: "Using AJAX, JavaScript"
 
 ## Lesson 8: "Spring API"
+
+## Lesson 9: "Using Spring API to set relationships in database"
