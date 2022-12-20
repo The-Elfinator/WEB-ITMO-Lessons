@@ -1,0 +1,67 @@
+main article .title {
+    font-size: 1.25rem;
+    color: #3B5998;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+main article .information {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    color: grey;
+}
+
+main article .body {
+    font-size: 0.9rem;
+    border-left: 0.25rem solid lightgrey;
+    padding-left: 0.5rem;
+}
+
+main article .attachment {
+    font-size: 0.75rem;
+    color: grey;
+}
+
+main article .footer {
+    border: 0.0625em solid var(--border-color);
+    border-radius: var(--border-radius);
+    position: relative;
+    height: 2em;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+main article .footer .left {
+    float: left;
+    position: relative;
+    line-height: 1.6em;
+    padding-left: 0.25rem;
+
+}
+
+main article .footer .left img {
+    position: relative;
+    top: 0.25rem
+}
+
+main article .footer .left .positive-score {
+    color: green;
+    font-weight: bold;
+    position: relative;
+}
+
+main article .footer .right {
+    float: right;
+    position: relative;
+    line-height: 1.6em;
+    font-size: small;
+    margin-right: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+main article .footer .right img {
+    position: relative;
+    top: 0.25rem;
+}
+
+
